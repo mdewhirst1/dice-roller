@@ -212,7 +212,9 @@
     </LinearLayout>
 
     <TextView
-            android:text="Welcome to the amazing dice roller\nInput a number then select a die to roll that many dice\n"
+            android:text="Welcome to the amazing dice roller\nInput a number then select a die to roll that many dice\n\n"
+            android:scrollbars = "vertical"
+            android:gravity="bottom"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:id="@+id/outputView"
