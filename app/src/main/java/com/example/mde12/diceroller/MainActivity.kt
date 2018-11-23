@@ -34,6 +34,18 @@ class MainActivity : AppCompatActivity() {
         rollDice(buttonText.removePrefix("d").toInt())
     }
 
+    fun onClickDelBtn(v: View) {
+        if (totalDice.length > 1) {
+            totalDice = totalDice.substring(0, totalDice.length - 1)
+            outputView.setText(outputView.text.substring(0, outputView.text.length - 1))
+        }
+    }
+
+    fun onClickClrBtn(v: View) {
+        outputView.setText(outputView.text.substring(0, outputView.text.length - (totalDice.length - 1)))
+        totalDice = "0"
+    }
+
     private fun rollDice(dieValue: Int) {
         outputView.append("Result >>> ")
         val totalDiceMin : Int = if (totalDice.toInt() > 0) totalDice.toInt() else 1
