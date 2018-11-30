@@ -177,7 +177,8 @@
             tools:layout_editor_absoluteX="25dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/numberInput"
-            android:id="@+id/dieInput">
+            android:id="@+id/dieInput"
+            tools:ignore="MissingConstraints">
 
         <LinearLayout
                 android:orientation="horizontal"

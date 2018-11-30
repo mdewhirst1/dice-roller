@@ -19,29 +19,29 @@ class MainActivity : AppCompatActivity() {
 
     private var totalDice: String = "0"
 
-    fun onClickIntBtn(v: View) {
-        val b = v as Button
+    fun onClickIntBtn(view: View) {
+        val b = view as Button
         val buttonText : String = b.text.toString()
         outputView.append(buttonText)
         totalDice += buttonText
     }
 
-    fun onClickDieBtn(v: View) {
-        val b = v as Button
+    fun onClickDieBtn(view: View) {
+        val b = view as Button
         val buttonText : String = b.text.toString()
         outputView.append(buttonText + "\n")
 
         rollDice(buttonText.removePrefix("d").toInt())
     }
 
-    fun onClickDelBtn(v: View) {
+    fun onClickDelBtn(view: View) {
         if (totalDice.length > 1) {
             totalDice = totalDice.substring(0, totalDice.length - 1)
             outputView.setText(outputView.text.substring(0, outputView.text.length - 1))
         }
     }
 
-    fun onClickClrBtn(v: View) {
+    fun onClickClrBtn(view: View) {
         outputView.setText(outputView.text.substring(0, outputView.text.length - (totalDice.length - 1)))
         totalDice = "0"
     }
