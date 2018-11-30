@@ -7,29 +7,36 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <android.support.constraint.Guideline
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/guideline"
-            app:layout_constraintGuide_begin="16dp"
-            android:orientation="vertical"/>
 
-    <TextView
-            android:text="Welcome to the amazing dice roller\nInput a number then select a die to roll that many dice\n\n"
-            android:scrollbars="vertical"
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="bottom"
-            android:id="@+id/outputView"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/dicepad"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            app:layout_constraintBottom_toTopOf="@+id/dicepad">
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/outputScrollView">
+
+            <TextView
+                    android:text="Welcome to the amazing dice roller\nInput a number then select a die to roll that many dice\n\n"
+                    android:scrollbars="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:id="@+id/outputView"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:paddingBottom="20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        </ScrollView>
+
+    </LinearLayout>
 
     <include
             layout="@layout/num_pad"
