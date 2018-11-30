@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         rollDice(buttonText.removePrefix("d").toInt())
     }
 
+    @Suppress("UNUSED_PARAMETER")
     fun onClickDelBtn(view: View) {
         if (totalDice.length > 1) {
             totalDice = totalDice.substring(0, totalDice.length - 1)
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @Suppress("UNUSED_PARAMETER")
     fun onClickClrBtn(view: View) {
         outputView.setText(outputView.text.substring(0, outputView.text.length - (totalDice.length - 1)))
         totalDice = "0"
