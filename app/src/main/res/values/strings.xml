@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">dice roller</string>
+    <string name="start_text">Welcome to the amazing dice roller\nInput a number then select a die to roll that many dice\n\n</string>
 </resources>

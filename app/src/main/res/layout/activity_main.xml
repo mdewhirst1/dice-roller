@@ -22,7 +22,7 @@
                 android:id="@+id/outputScrollView">
 
             <TextView
-                    android:text="Welcome to the amazing dice roller\nInput a number then select a die to roll that many dice\n\n"
+                    android:text="@string/start_text"
                     android:scrollbars="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
