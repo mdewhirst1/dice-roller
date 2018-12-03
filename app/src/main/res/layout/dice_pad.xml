@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content">
 
             <Button
-                    android:text="d4"
+                    android:text="@string/d4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonD4"
@@ -30,7 +30,7 @@
                     android:layout_weight="1"/>
 
             <Button
-                    android:text="d6"
+                    android:text="@string/d6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonD6"
@@ -38,7 +38,7 @@
                     android:layout_weight="1"/>
 
             <Button
-                    android:text="d8"
+                    android:text="@string/d8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonD8"
@@ -46,7 +46,7 @@
                     android:layout_weight="1"/>
 
             <Button
-                    android:text="d10"
+                    android:text="@string/d10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonD10"
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content">
 
             <Button
-                    android:text="d12"
+                    android:text="@string/d12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonD12"
@@ -68,7 +68,7 @@
                     android:layout_weight="1"/>
 
             <Button
-                    android:text="d20"
+                    android:text="@string/d20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonD20"
@@ -76,7 +76,7 @@
                     android:layout_weight="1"/>
 
             <Button
-                    android:text="d100"
+                    android:text="@string/d100"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonD100"
