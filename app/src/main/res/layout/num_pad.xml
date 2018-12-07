@@ -30,7 +30,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="16dp"
                     android:onClick="onClickIntBtn"
-                    android:text="7"/>
+                    android:text="@string/n7"/>
 
             <Button
                     android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
                     app:layout_constraintStart_toEndOf="@+id/button7"
                     android:layout_marginStart="8dp"
                     android:onClick="onClickIntBtn"
-                    android:text="8"/>
+                    android:text="@string/n8"/>
 
             <Button
                     android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="16dp"
                     android:onClick="onClickIntBtn"
-                    android:text="9"/>
+                    android:text="@string/n9"/>
         </LinearLayout>
 
         <LinearLayout
@@ -66,7 +66,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="16dp"
                     android:onClick="onClickIntBtn"
-                    android:text="4"/>
+                    android:text="@string/n4"/>
 
             <Button
                     android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
                     app:layout_constraintStart_toEndOf="@+id/button4"
                     android:layout_marginStart="8dp"
                     android:onClick="onClickIntBtn"
-                    android:text="5"/>
+                    android:text="@string/n5"/>
 
             <Button
                     android:layout_width="wrap_content"
@@ -85,7 +85,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="16dp"
                     android:onClick="onClickIntBtn"
-                    android:text="6"/>
+                    android:text="@string/n6"/>
         </LinearLayout>
 
         <LinearLayout
@@ -102,7 +102,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="16dp"
                     android:onClick="onClickIntBtn"
-                    android:text="1"/>
+                    android:text="@string/n1"/>
 
             <Button
                     android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
                     app:layout_constraintStart_toEndOf="@+id/button1"
                     android:layout_marginStart="8dp"
                     android:onClick="onClickIntBtn"
-                    android:text="2"/>
+                    android:text="@string/n2"/>
 
             <Button
                     android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="16dp"
                     android:onClick="onClickIntBtn"
-                    android:text="3"/>
+                    android:text="@string/n3"/>
         </LinearLayout>
 
         <LinearLayout
@@ -139,7 +139,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="16dp"
                     android:onClick="onClickIntBtn"
-                    android:text="0"/>
+                    android:text="@string/n0"/>
 
             <Button
                     android:layout_width="wrap_content"
@@ -148,7 +148,7 @@
                     app:layout_constraintStart_toEndOf="@+id/button0"
                     android:layout_marginStart="8dp"
                     android:onClick="onClickDelBtn"
-                    android:text="Del"/>
+                    android:text="@string/del"/>
 
             <Button
                     android:layout_width="wrap_content"
@@ -158,7 +158,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="16dp"
                     android:onClick="onClickClrBtn"
-                    android:text="Clr"/>
+                    android:text="@string/clr"/>
         </LinearLayout>
     </LinearLayout>
 
