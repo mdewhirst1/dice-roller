@@ -6,7 +6,7 @@ To use simply enter a number then select a die to roll that many dice, results a
 ## Todo List
 ### Wants
 - usable landscape layout
-- improve random roll logic (crashes when rolling more that 900)
+- improve random roll logic (crashes when rolling more than ~ 10000)
 - dice modifiers
 - adv/dis-adv rolls
 
