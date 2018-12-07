@@ -53,12 +53,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice(dieValue: Int) {
-        outputView.append("\n\nResult >>> ")
-        val totalDiceInt : Int = if (totalDice.toInt() > 0) totalDice.toInt() else 1
+        val totalDiceInt : Int = maxOf(totalDice.toInt(), 1)
+        var outputText = ""
         for (i in 1..totalDiceInt) {
-            outputView.append(Random.nextInt(1, dieValue + 1).toString() + " ")
+            outputText = outputText + Random.nextInt(1, dieValue + 1).toString() + " "
         }
-        outputView.append("\n\n")
+
+        outputView.append("\n\nResult >>> " + outputText + "\n\n")
 
         totalDice = "0"
     }
