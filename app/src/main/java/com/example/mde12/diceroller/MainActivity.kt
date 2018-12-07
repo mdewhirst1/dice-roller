@@ -34,7 +34,10 @@ class MainActivity : AppCompatActivity() {
         val buttonText : String = b.text.toString()
         outputView.append(buttonText)
 
-        rollDice(buttonText.removePrefix("d").toInt())
+        val rollOutput = rollDice(buttonText.removePrefix("d").toInt(), totalDice.toInt())
+        outputView.append("\n\nResult >>> " + rollOutput + "\n\n")
+
+        totalDice = "0"
         scrollDown()
     }
 
@@ -52,15 +55,12 @@ class MainActivity : AppCompatActivity() {
         totalDice = "0"
     }
 
-    private fun rollDice(dieValue: Int) {
-        val totalDiceInt : Int = maxOf(totalDice.toInt(), 1)
+    private fun rollDice(dieValue: Int, numOfDice: Int): String {
+        val safeNumOfDice : Int = maxOf(numOfDice, 1)
         var outputText = ""
-        for (i in 1..totalDiceInt) {
+        for (i in 1..safeNumOfDice) {
             outputText = outputText + Random.nextInt(1, dieValue + 1).toString() + " "
         }
-
-        outputView.append("\n\nResult >>> " + outputText + "\n\n")
-
-        totalDice = "0"
+        return outputText
     }
 }
