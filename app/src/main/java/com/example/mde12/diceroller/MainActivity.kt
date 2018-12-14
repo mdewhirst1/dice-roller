@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ScrollView
 import kotlinx.android.synthetic.main.activity_main.outputView
+import java.math.BigInteger
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val buttonText : String = b.text.toString()
         outputView.append(buttonText)
 
-        val rollOutput = rollDice(buttonText.removePrefix("d").toInt(), totalDice.toLong())
+        val rollOutput = rollDice(buttonText.removePrefix("d").toInt(), totalDice.toBigInteger())
         outputView.append("\n\nResult >>> " + rollOutput + "\n\n")
 
         totalDice = "0"
@@ -55,11 +56,15 @@ class MainActivity : AppCompatActivity() {
         totalDice = "0"
     }
 
-    private fun rollDice(dieValue: Int, numOfDice: Long): String {
-        val safeNumOfDice : Long = minOf(maxOf(numOfDice, 1), 1000)
+    private fun rollDice(dieValue: Int, numOfDice: BigInteger): String {
         var outputText = ""
-        for (i in 1..safeNumOfDice) {
+
+        var safeNumOfDice = numOfDice.max(BigInteger.ONE) //at least 1
+        safeNumOfDice = safeNumOfDice.min(BigInteger.valueOf(1000)) //at most 1000. Want to remove this
+
+        while (safeNumOfDice.compareTo(BigInteger.ZERO) > 0) {
             outputText = outputText + Random.nextInt(1, dieValue + 1).toString() + " "
+            safeNumOfDice = safeNumOfDice.subtract(BigInteger.ONE)
         }
         return outputText
     }
