@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val buttonText : String = b.text.toString()
         outputView.append(buttonText)
 
-        val rollOutput = rollDice(buttonText.removePrefix("d").toInt(), totalDice.toBigInteger())
+        val rollOutput = rollDice(buttonText.removePrefix("d").toInt(), getDiceToRollNumber(totalDice))
         outputView.append("\n\nResult >>> " + rollOutput + "\n\n")
 
         totalDice = "0"
@@ -67,5 +67,16 @@ class MainActivity : AppCompatActivity() {
             safeNumOfDice = safeNumOfDice.subtract(BigInteger.ONE)
         }
         return outputText
+    }
+
+    private fun getDiceToRollNumber(desired: String): BigInteger {
+        try {
+            val result = desired.toBigInteger()
+            return result
+        } catch (e : NumberFormatException) {
+            outputView.append("\n\nDo you really need that many dice rolling?\n\n")
+        }
+
+        return BigInteger.ONE
     }
 }
