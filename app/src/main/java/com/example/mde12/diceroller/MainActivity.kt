@@ -11,7 +11,7 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    private var totalDice: String = "0"
+    private var desiredNumberOfDice: String = "0"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         val b = view as Button
         val buttonText : String = b.text.toString()
         outputView.append(buttonText)
-        totalDice += buttonText
+        desiredNumberOfDice += buttonText
     }
 
     fun onClickDieBtn(view: View) {
@@ -35,25 +35,25 @@ class MainActivity : AppCompatActivity() {
         val buttonText : String = b.text.toString()
         outputView.append(buttonText)
 
-        val rollOutput = rollDice(buttonText.removePrefix("d").toInt(), getDiceToRollNumber(totalDice))
+        val rollOutput = rollDice(buttonText.removePrefix("d").toInt(), getDesiredDiceAsNumber())
         outputView.append("\n\nResult >>> " + rollOutput + "\n\n")
 
-        totalDice = "0"
+        desiredNumberOfDice = "0"
         scrollDown()
     }
 
     @Suppress("UNUSED_PARAMETER")
     fun onClickDelBtn(view: View) {
-        if (totalDice.length > 1) {
-            totalDice = totalDice.substring(0, totalDice.length - 1)
+        if (desiredNumberOfDice.length > 1) {
+            desiredNumberOfDice = desiredNumberOfDice.substring(0, desiredNumberOfDice.length - 1)
             outputView.text = outputView.text.substring(0, outputView.text.length - 1)
         }
     }
 
     @Suppress("UNUSED_PARAMETER")
     fun onClickClrBtn(view: View) {
-        outputView.text = outputView.text.substring(0, outputView.text.length - (totalDice.length - 1))
-        totalDice = "0"
+        outputView.text = outputView.text.substring(0, outputView.text.length - (desiredNumberOfDice.length - 1))
+        desiredNumberOfDice = "0"
     }
 
     private fun rollDice(dieValue: Int, numOfDice: BigInteger): String {
@@ -69,14 +69,15 @@ class MainActivity : AppCompatActivity() {
         return outputText
     }
 
-    private fun getDiceToRollNumber(desired: String): BigInteger {
+    private fun getDesiredDiceAsNumber(): BigInteger {
+        var result = BigInteger.ONE
+        
         try {
-            val result = desired.toBigInteger()
-            return result
+            result = desiredNumberOfDice.toBigInteger()
         } catch (e : NumberFormatException) {
             outputView.append("\n\nDo you really need that many dice rolling?\n\n")
         }
 
-        return BigInteger.ONE
+        return result
     }
 }
