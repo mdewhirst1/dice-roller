@@ -6,7 +6,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.ScrollView
 import kotlinx.android.synthetic.main.activity_main.outputView
-import java.math.BigInteger
+import kotlin.math.max
+import kotlin.math.min
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val buttonText : String = b.text.toString()
         outputView.append(buttonText)
 
-        val rollOutput = rollDice(buttonText.removePrefix("d").toInt(), getDesiredDiceAsNumber())
+        val rollOutput = rollDice(buttonText.removePrefix("d").toByte(), desiredNumberOfDice)
         outputView.append("\n\nResult >>> " + rollOutput + "\n\n")
 
         desiredNumberOfDice = "0"
@@ -56,28 +57,30 @@ class MainActivity : AppCompatActivity() {
         desiredNumberOfDice = "0"
     }
 
-    private fun rollDice(dieValue: Int, numOfDice: BigInteger): String {
+    private fun rollDice(dieValue: Byte, numOfDice: String): String {
+        val numOfDiceInt = getDesiredDiceAsNumber(numOfDice)
         var outputText = ""
 
-        var safeNumOfDice = numOfDice.max(BigInteger.ONE) //at least 1
-        safeNumOfDice = safeNumOfDice.min(BigInteger.valueOf(1000)) //at most 1000. Want to remove this
-
-        while (safeNumOfDice.compareTo(BigInteger.ZERO) > 0) {
-            outputText = outputText + Random.nextInt(1, dieValue + 1).toString() + " "
-            safeNumOfDice = safeNumOfDice.subtract(BigInteger.ONE)
+        for (i in 1..numOfDiceInt) {
+            outputText += "${Random.nextInt(1, dieValue + 1)} "
         }
+
+        if (numOfDiceInt >= 100) {
+            outputText += "\n\nDid you really need that many dice rolling?\n\n"
+        }
+
         return outputText
     }
 
-    private fun getDesiredDiceAsNumber(): BigInteger {
-        var result = BigInteger.ONE
+    fun getDesiredDiceAsNumber(desiredNumberOfDice: String): Int {
+        var result = 1
         
         try {
-            result = desiredNumberOfDice.toBigInteger()
+            result = max(desiredNumberOfDice.toInt(), result)
         } catch (e : NumberFormatException) {
-            outputView.append("\n\nDo you really need that many dice rolling?\n\n")
+            result = Int.MAX_VALUE
         }
 
-        return result
+        return min(1000, result) //at most 1000. Want to remove this
     }
 }
