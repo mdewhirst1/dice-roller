@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             outputText += "${Random.nextInt(1, dieValue + 1)} "
         }
 
-        if (numOfDiceInt >= 100) {
+        if (numOfDiceInt >= 1000) {
             outputText += "\n\nDid you really need that many dice rolling?\n\n"
         }
 
