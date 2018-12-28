@@ -61,6 +61,14 @@ class MainActivity : AppCompatActivity() {
         val numOfDiceInt = getDesiredDiceAsNumber(numOfDice)
         var outputText = ""
 
+        if(numOfDiceInt == 666) {
+            for (i in 1..numOfDiceInt) {
+                outputText += "1 "
+            }
+            
+            return outputText
+        }
+
         for (i in 1..numOfDiceInt) {
             outputText += "${Random.nextInt(1, dieValue + 1)} "
         }
