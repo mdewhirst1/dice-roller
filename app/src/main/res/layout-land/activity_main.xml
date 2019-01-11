@@ -63,7 +63,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:gravity="center_vertical|center_horizontal|center"
                 android:id="@+id/dicepad"
-                />
+                android:layout_width="match_parent"/>
 
     </LinearLayout>
 
